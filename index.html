@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zoliakie Kaffee · Carta</title>
+<meta name="description" content="Carta de Zoliakie Kaffee, cafetería 100% sin gluten en Providencia, Santiago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#568C3B; --verde-prof:#355A28; --cafe:#3E352C; --crema:#FFF6D5; --marfil:#FAF8F2;
+  --linea:#DDD4BA; --suave:#6B5F52;
+  --titulos:"Lora",Georgia,"Times New Roman",serif;
+  --texto:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 110px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--marfil);color:var(--cafe);font-family:var(--texto);font-size:1rem;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--marfil);z-index:10}
+h1,h2,h3{font-family:var(--titulos);font-weight:600;margin:0;line-height:1.25}
+a{color:var(--verde-prof)}
+:focus-visible{outline:3px solid var(--verde);outline-offset:2px}
+.wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.muestra{background:var(--crema);border-bottom:1px solid var(--linea);font-size:.875rem;padding:7px 0}
+
+header.top{border-bottom:2px solid var(--verde);padding:18px 0 16px}
+header.top .wrap{display:flex;align-items:center;gap:14px}
+.logo{flex:none;width:60px;height:60px}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
+header h1{font-size:1.5rem}
+header p{margin:2px 0 0;font-size:.95rem;color:var(--suave)}
+header .desc-neg{color:var(--verde-prof);font-weight:600}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--marfil);border-bottom:1px solid var(--linea);padding:12px 0 0}
+.bar .wrap{display:flex;flex-direction:column;gap:6px}
+.search input{width:100%;min-height:46px;padding:9px 12px;border:1px solid #BFB596;border-radius:4px;background:#fff;color:var(--cafe);font:inherit}
+.search input::placeholder{color:var(--suave)}
+.tabs{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;min-height:46px;padding:8px 2px 6px;background:none;border:0;border-bottom:3px solid transparent;color:var(--cafe);font:600 1rem var(--texto);cursor:pointer}
+.tab[aria-pressed="true"]{color:var(--verde-prof);border-bottom-color:var(--verde-prof)}
+
+main{padding:26px 0 4px}
+main>.wrap>h2{font-size:1.5rem;margin-bottom:6px}
+.cat-sec{margin-top:26px}
+.cat-sec h3{font-size:1.25rem;padding-bottom:6px;border-bottom:1px solid var(--cafe)}
+.lista{list-style:none;margin:0;padding:0}
+.lista li{break-inside:avoid}
+.item{display:flex;gap:14px;align-items:flex-start;width:100%;padding:14px 0;background:none;border:0;border-bottom:1px solid var(--linea);text-align:left;font:inherit;color:inherit;cursor:pointer}
+.item img{flex:none;width:84px;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.cuerpo{flex:1;min-width:0}
+.linea{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.nombre{font-weight:600;font-size:1.0625rem}
+.precio{font-weight:600;font-size:1.0625rem;white-space:nowrap}
+.precio.pend{font-weight:400;font-size:.875rem;color:var(--suave);white-space:normal;text-align:right;max-width:7.5rem}
+.desc{margin:2px 0 0;font-size:.9375rem;color:var(--suave)}
+.disp{margin:2px 0 0;font-size:.875rem;font-weight:600;color:var(--verde-prof)}
+.vacio{margin-top:22px;padding:18px 0;border-top:1px solid var(--linea)}
+.vacio p{margin:0 0 12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:9px 20px;border-radius:4px;border:1px solid var(--verde-prof);background:var(--verde-prof);color:#fff;font:600 1rem var(--texto);text-decoration:none;cursor:pointer}
+.btn.sec{background:none;color:var(--verde-prof)}
+
+section.info{margin-top:36px;padding-top:22px;border-top:1px solid var(--linea)}
+section.info h2{font-size:1.5rem;margin-bottom:10px}
+section.info p{margin:0 0 10px;max-width:60ch}
+section.info dl{margin:0 0 14px}
+section.info dt{font-weight:600}
+section.info dd{margin:0 0 10px}
+
+footer{margin-top:44px;background:var(--cafe);color:var(--crema);padding:22px 0 26px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;justify-content:space-between}
+footer strong{font-family:var(--titulos);font-weight:600;font-size:1.05rem}
+footer a{color:var(--crema);min-height:44px;display:inline-flex;align-items:center}
+
+dialog{width:min(480px,calc(100% - 32px));max-height:calc(100% - 48px);padding:0;border:1px solid var(--linea);border-radius:6px;background:var(--marfil);color:var(--cafe);overflow:auto}
+dialog::backdrop{background:rgba(62,53,44,.55)}
+.ficha{padding:20px 22px 22px}
+.ficha .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ficha h2{font-size:1.4rem}
+.ficha .cerrar{flex:none;min-height:44px;padding:8px 14px;border:1px solid #BFB596;border-radius:4px;background:none;color:var(--cafe);font:600 .95rem var(--texto);cursor:pointer}
+.ficha .cat{margin:0 0 2px;font-size:.875rem;color:var(--suave)}
+.ficha img{display:block;width:100%;height:auto;margin:14px 0 0;border-radius:3px}
+.ficha .desc{margin:12px 0 0;font-size:1rem}
+.ficha .precio{display:block;margin:12px 0 0;font-size:1.25rem}
+.ficha .precio.pend{text-align:left;max-width:none;font-size:1rem}
+.ficha .btn{width:100%;margin-top:18px}
+.ficha .nota{margin:10px 0 0;font-size:.85rem;color:var(--suave)}
+body.bloqueado{overflow:hidden}
+
+@media (min-width:700px){
+  .bar .wrap{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:28px}
+  .search{flex:0 0 280px;padding-bottom:6px}
+  header h1{font-size:1.75rem}
+  .logo{width:68px;height:68px}
+}
+@media (min-width:860px){.lista{column-count:2;column-gap:56px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="muestra" id="aviso" hidden>
+  <div class="wrap">Carta de muestra: productos, precios y descripciones pendientes de confirmación.</div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo" id="logo" hidden></div>
+    <div>
+      <h1 id="nombre"></h1>
+      <p id="ubicacion"></p>
+      <p class="desc-neg" id="descriptor"></p>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="search">
+      <label for="q" class="sr">Buscar en la carta por nombre</label>
+      <input id="q" type="search" placeholder="Buscar por nombre" autocomplete="off" enterkeyhint="search">
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Categorías"></div>
+  </div>
+</div>
+
+<main id="carta">
+  <div class="wrap">
+    <h2>Nuestra carta</h2>
+    <p class="sr" id="estado" role="status" aria-live="polite"></p>
+    <div id="secciones"></div>
+    <div class="vacio" id="vacio" hidden>
+      <p>No encontramos productos con esa búsqueda. Prueba con otra palabra o vuelve a ver toda la carta.</p>
+      <button class="btn sec" id="limpiar" type="button">Ver toda la carta</button>
+    </div>
+
+    <section class="info" id="sin-gluten" aria-labelledby="h-gluten">
+      <h2 id="h-gluten">Sin gluten</h2>
+      <div id="gluten"></div>
+    </section>
+
+    <section class="info" id="donde" aria-labelledby="h-donde">
+      <h2 id="h-donde">Dónde estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd id="dir"></dd>
+        <dt>Referencia</dt><dd id="ref"></dd>
+        <div id="horarios" hidden><dt>Horarios</dt><dd id="horas"></dd></div>
+      </dl>
+      <a class="btn" id="mapa" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong id="pie-nombre"></strong>
+    <a id="pie-ig" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<dialog id="ficha" aria-labelledby="f-nombre"></dialog>
+
+<script>
+/* ============ DATOS EDITABLES (cambia solo esta sección) ============ */
+const CONFIG = {
+  muestra: true,                         // false cuando la carta sea la real
+  nombre: "Zoliakie Kaffee",
+  descriptor: "Cafetería 100% sin gluten",
+  direccion: "Providencia 2546, Providencia, Santiago",
+  referencia: "Cerca de Metro Tobalaba",
+  instagram: "https://www.instagram.com/zoliakiekaffee/",
+  telefono: "",                          // solo dígitos con código país, ej. "569XXXXXXXX". Vacío = sin botón de WhatsApp
+  horarios: [],                          // ej. [{dias:"Lunes a viernes", horas:"9:00 a 19:00"}]. Vacío = no se muestra
+  logo: "",                              // ruta del sello, ej. "img/logo-zoliakie.png". Vacío = el encabezado va solo con texto
+  sinGluten: []                          // párrafos reales sobre ingredientes y preparación. Vacío = aviso provisional
+};
+const CATEGORIAS = [
+  { id: "todo", nombre: "Todo" },
+  { id: "salados", nombre: "Salados" },
+  { id: "dulces", nombre: "Dulces" },
+  { id: "bebidas", nombre: "Bebidas" }
+];
+/* precio: número en pesos chilenos o null (= "Precio por confirmar")
+   disponibilidad: "disponible", "agotado" o null (no se muestra)
+   imagen: ruta de la foto real o "" (el producto se muestra solo con texto) */
+const PRODUCTOS = [
+  { id: "empanadas",    nombre: "Empanadas",    categoria: "salados", descripcion: "", precio: null, imagen: "", disponibilidad: null },
+  { id: "sandwiches",   nombre: "Sándwiches",   categoria: "salados", descripcion: "", precio: null, imagen: "", disponibilidad: null },
+  { id: "hamburguesas", nombre: "Hamburguesas", categoria: "salados", descripcion: "", precio: null, imagen: "", disponibilidad: null },
+  { id: "reposteria",   nombre: "Repostería",   categoria: "dulces",  descripcion: "", precio: null, imagen: "", disponibilidad: null },
+  { id: "bebidas",      nombre: "Bebidas",      categoria: "bebidas", descripcion: "", precio: null, imagen: "", disponibilidad: null }
+];
+/* ============ FIN DE DATOS EDITABLES ============ */
+
+const $ = s => document.querySelector(s);
+const norm = t => (t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+const clp = n => "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const catNombre = id => (CATEGORIAS.find(c => c.id === id) || {}).nombre || "";
+const DISP = { disponible: "Disponible", agotado: "Agotado por ahora" };
+let categoria = "todo", consulta = "", ultimo = null;
+
+function el(tag, cls, txt) { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+function foto(p) {
+  if (!p.imagen) return null;
+  const i = new Image(); i.src = p.imagen; i.alt = p.nombre; i.loading = "lazy";
+  i.onerror = () => i.remove(); return i;
+}
+function precioEl(p) { return p.precio == null ? el("span", "precio pend", "Precio por confirmar") : el("span", "precio", clp(p.precio)); }
+
+function init() {
+  $("#nombre").textContent = CONFIG.nombre;
+  $("#ubicacion").textContent = CONFIG.direccion.split(",")[0] + ", " + CONFIG.referencia.charAt(0).toLowerCase() + CONFIG.referencia.slice(1);
+  $("#descriptor").textContent = CONFIG.descriptor;
+  $("#pie-nombre").textContent = CONFIG.nombre;
+  $("#pie-ig").href = CONFIG.instagram;
+  $("#aviso").hidden = !CONFIG.muestra;
+  if (CONFIG.logo) {
+    const i = new Image(); i.src = CONFIG.logo; i.alt = "Sello de " + CONFIG.nombre;
+    i.onerror = () => { i.remove(); $("#logo").hidden = true; };
+    $("#logo").append(i); $("#logo").hidden = false;
+  }
+  $("#dir").textContent = CONFIG.direccion;
+  $("#ref").textContent = CONFIG.referencia;
+  $("#mapa").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.direccion + ", Chile");
+  if (CONFIG.horarios.length) {
+    $("#horarios").hidden = false;
+    CONFIG.horarios.forEach(h => $("#horas").append(el("div", "", h.dias + ": " + h.horas)));
+  }
+  const g = $("#gluten");
+  if (CONFIG.sinGluten.length) CONFIG.sinGluten.forEach(t => g.append(el("p", "", t)));
+  else g.append(el("p", "", "Estamos preparando la información sobre ingredientes y preparación."));
+
+  CATEGORIAS.forEach(c => {
+    const b = el("button", "tab", c.nombre); b.type = "button"; b.dataset.id = c.id;
+    b.addEventListener("click", () => { categoria = c.id; render(); });
+    $("#tabs").append(b);
+  });
+  $("#q").addEventListener("input", e => { consulta = e.target.value; render(); });
+  $("#limpiar").addEventListener("click", () => { consulta = ""; categoria = "todo"; $("#q").value = ""; render(); });
+  render();
+}
+
+function render() {
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-pressed", b.dataset.id === categoria));
+  const q = norm(consulta);
+  const cont = $("#secciones"); cont.replaceChildren();
+  let total = 0;
+  CATEGORIAS.filter(c => c.id !== "todo" && (categoria === "todo" || categoria === c.id)).forEach(c => {
+    const items = PRODUCTOS.filter(p => p.categoria === c.id && (!q || norm(p.nombre).includes(q)));
+    if (!items.length) return;
+    total += items.length;
+    const sec = el("section", "cat-sec"); sec.setAttribute("aria-label", c.nombre);
+    sec.append(el("h3", "", c.nombre));
+    const ul = el("ul", "lista");
+    items.forEach(p => {
+      const li = el("li"), b = el("button", "item"); b.type = "button";
+      const f = foto(p); if (f) b.append(f);
+      const cuerpo = el("div", "cuerpo"), linea = el("div", "linea");
+      linea.append(el("span", "nombre", p.nombre), precioEl(p));
+      cuerpo.append(linea);
+      if (p.descripcion) cuerpo.append(el("p", "desc", p.descripcion));
+      if (DISP[p.disponibilidad]) cuerpo.append(el("p", "disp", DISP[p.disponibilidad]));
+      b.append(cuerpo);
+      b.addEventListener("click", () => abrir(p, b));
+      li.append(b); ul.append(li);
+    });
+    sec.append(ul); cont.append(sec);
+  });
+  $("#vacio").hidden = total > 0;
+  $("#estado").textContent = total ? (total === 1 ? "1 producto" : total + " productos") : "Sin resultados";
+}
+
+function abrir(p, origen) {
+  ultimo = origen;
+  const d = $("#ficha"); d.replaceChildren();
+  const w = el("div", "ficha"), top = el("div", "top"), tit = el("div");
+  const h = el("h2", "", p.nombre); h.id = "f-nombre";
+  tit.append(el("p", "cat", catNombre(p.categoria)), h);
+  const x = el("button", "cerrar", "Cerrar"); x.type = "button";
+  x.addEventListener("click", () => d.close());
+  top.append(tit, x); w.append(top);
+  const f = foto(p); if (f) w.append(f);
+  w.append(el("p", "desc", p.descripcion || "Descripción por confirmar."));
+  if (DISP[p.disponibilidad]) w.append(el("p", "disp", DISP[p.disponibilidad]));
+  w.append(precioEl(p));
+  if (CONFIG.telefono) {
+    const a = el("a", "btn", "Consultar por WhatsApp");
+    a.href = "https://wa.me/" + CONFIG.telefono.replace(/\D/g, "") + "?text=" + encodeURIComponent("Hola, quisiera consultar la disponibilidad de " + p.nombre);
+    a.target = "_blank"; a.rel = "noopener";
+    w.append(a, el("p", "nota", "Es solo una consulta: no es un pedido ni una reserva."));
+  }
+  d.append(w); d.showModal(); document.body.classList.add("bloqueado");
+}
+const dlg = $("#ficha");
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => { document.body.classList.remove("bloqueado"); if (ultimo) ultimo.focus(); });
+init();
+</script>
+</body>
+</html>
